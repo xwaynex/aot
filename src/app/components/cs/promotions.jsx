@@ -5,7 +5,6 @@ import { DataGrid } from '@mui/x-data-grid';
 import { data3 } from '../../../app/dash/data/disputedata';
 import { useSelector } from 'react-redux';
 import { PromotionsPages } from '@/store/slice/promotionsSlice';
-import Modal from 'react-modal'
 import { useState } from 'react'
 import ModalComponent from './Modal';
 import bin from "@/assets/delete.png";

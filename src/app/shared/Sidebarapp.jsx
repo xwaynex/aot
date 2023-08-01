@@ -19,12 +19,12 @@ const Sidebar = () => {
   const [open, setOpen] = useState(true)
 
   const Menus = [
-    { title: 'Home', src: dash, link: 'dashboard', path: '/dash/dashboard' },
-    { title: 'tracking', src: users, link: 'userdetails', path: '/dash/userdetails' },
+    { title: 'Home', src: dash, link: 'home', path: '/webapp/home' },
+    { title: 'tracking', src: users, link: 'tracking', path: '/webapp/tracking' },
     { title: 'Wallet', src: disp, link: 'disputes', path: '/dash/disputes' },
-    { title: 'My Deliveries', src: promo, link: 'promotions', path: '/dash/promotions' },
+    { title: 'My Deliveries', src: promo, link: 'delivery', path: '/webapp/delivery' },
     { title: 'Settings', src: staff, link: 'staffs', path: '/dash/staffs' },
-    { title: 'Support', src: control, link: 'controls', path: '/dash/controls' },
+    { title: 'Support', src: control, link: 'support', path: '/webapp/support' },
   ];
 
   return (

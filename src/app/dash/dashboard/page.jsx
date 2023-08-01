@@ -1,4 +1,4 @@
-"use client"
+      "use client"
 import React from 'react'
 import Layout from '../../shared/Layout'
 import LineChart from '../../components/dash/Linechart'

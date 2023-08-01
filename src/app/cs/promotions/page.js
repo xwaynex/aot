@@ -24,10 +24,10 @@ const page = () => {
   <li className="mr-6">
     <button className="text-gray-500 text-[16px] hover:underline"  onClick={()=>dispatch(setCurrentPage(PromotionsPages.ALL_PROMOTIONS))}>All Promotions</button>
   </li>
-  <li class="mr-6">
+  <li className="mr-6">
     <button className="text-gray-500 text-[16px] hover:underline"  onClick={()=>dispatch(setCurrentPage(PromotionsPages.ACTIVE))}>Active</button>
   </li>
-  <li class="mr-6">
+  <li className="mr-6">
     <button className="text-gray-500 text-[16px] hover:underline"  onClick={()=>dispatch(setCurrentPage(PromotionsPages.INACTIVE))}>Inactive</button>
   </li>
   <li className="mr-6">

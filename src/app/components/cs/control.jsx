@@ -157,11 +157,7 @@ export default function DataTable() {
       </style>
 
      
-          <div className="grid place-content-center top-auto">
-          <button className="w-[300px] h-[56px] rounded-md bg-[#FF7D00] text-center">
-          <h2 className="text-[16px]">Add Staff</h2>
-          </button>
-          </div>
+         
       
     </div>
   );
