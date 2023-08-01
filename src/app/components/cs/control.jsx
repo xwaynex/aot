@@ -1,7 +1,7 @@
 "use client"
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { staff } from '../../../app/dash/data/disputedata';
+import { staff } from '../../dash/data/disputedata';
 import { useState } from 'react'
 import ModalComponent from './Modal';
 

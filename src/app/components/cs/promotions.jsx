@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { data3 } from '../../../app/dash/data/disputedata';
+import { data3 } from '../../dash/data/disputedata';
 import { useSelector } from 'react-redux';
 import { PromotionsPages } from '@/store/slice/promotionsSlice';
 import { useState } from 'react'
