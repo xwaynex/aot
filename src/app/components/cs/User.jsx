@@ -112,7 +112,7 @@ const additionalColumnData=[
 
 
 
-export default function DataTable() {
+export default function User() {
 
   const tableStyles = {
     border: 'none',

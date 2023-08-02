@@ -227,8 +227,8 @@ const page = () => {
   </div>
 
   <div className='w-full border border-2-black mt-9 font-bold'></div>
-  <div className='col-span-11 flex justify-between'><h1>Total</h1>
-    <div ><p>#2,000</p></div>
+  <div className='col-span-11 flex justify-between'><h1 className='font-bold'>Total</h1>
+    <div ><p className='font-bold'>#2,000</p></div>
     </div>
 
 

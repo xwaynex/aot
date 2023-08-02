@@ -108,7 +108,7 @@ const columns = [
 
 
 
-export default function DataTable() {
+export default function Staffs() {
 
   const tableStyles = {
     border: 'none',

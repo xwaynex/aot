@@ -105,7 +105,7 @@ const columns = [
 
 
 
-export default function DataTable() {
+export default function Dispute() {
 
 
   const [customColumn,setCustomColumn]=React.useState(columns);

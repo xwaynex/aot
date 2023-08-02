@@ -113,7 +113,7 @@ const columns = [
 
 
 
-export default function DataTable() {
+export default function Promotions() {
 
   const tableStyles = {
     border: 'none',

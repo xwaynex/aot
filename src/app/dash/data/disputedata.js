@@ -392,3 +392,42 @@ export const message = [
   },
 
 ];
+
+export const transactions = [
+  {
+    type: "payment",
+    name: "Deposit",
+    date: "Sept 4, 2023",
+    amount:"+₦5,000"
+  },
+  {
+    type: "delivery",
+    name: "Laptop delivery to Ikorodu",
+    date: "Sept 4, 2023",
+    amount: "+₦3,000"
+  },
+  {
+    type: "delivery",
+    name: "Document delivery to Ikorodu",
+    date: "Sept 4, 2023",
+    amount: "+₦3,000"
+  },
+  {
+    type: "payment",
+    name: "Deposit",
+    date: "Sept 4, 2023",
+    amount:"+₦5,000"
+  },
+  {
+    type: "delivery",
+    name: "Laptop delivery to Ikorodu",
+    date: "Sept 4, 2023",
+    amount: "+₦3,000"
+  },
+  {
+    type: "delivery",
+    name: "Document delivery to Ikorodu",
+    date: "Sept 4, 2023",
+    amount: "+₦3,000"
+  },
+]

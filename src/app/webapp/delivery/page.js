@@ -3,7 +3,7 @@ import React from 'react'
 import Layout from '../../shared/Layout3'
 import { Search } from '@mui/icons-material'
 import FilterListIcon from '@mui/icons-material/FilterList';
-import Usertable from '../../components/webapp/table';
+import Usertable from '../../components/webapp/Table';
 import { useDispatch } from 'react-redux';
 import { DashboardPages, setCurrentPage } from '@/store/slice/dashboardSlice';
 

@@ -21,9 +21,9 @@ const Sidebar = () => {
   const Menus = [
     { title: 'Home', src: dash, link: 'home', path: '/webapp/home' },
     { title: 'tracking', src: users, link: 'tracking', path: '/webapp/tracking' },
-    { title: 'Wallet', src: disp, link: 'disputes', path: '/dash/disputes' },
+    { title: 'Wallet', src: disp, link: 'wallet', path: '/webapp/wallet' },
     { title: 'My Deliveries', src: promo, link: 'delivery', path: '/webapp/delivery' },
-    { title: 'Settings', src: staff, link: 'staffs', path: '/dash/staffs' },
+    { title: 'Settings', src: staff, link: 'settings', path: '/webapp/settings' },
     { title: 'Support', src: control, link: 'support', path: '/webapp/support' },
   ];
 
@@ -48,7 +48,10 @@ const Sidebar = () => {
           </div>
           <div className="flex flex-col text-center">
             <span className={`${open ? '' : 'hidden'} text-black text-[20px]`}>Olakareem</span>
-            <span className={`${open ? '' : 'hidden'} text-black text-[14px]`}>Administrator</span>
+            <Link href="/webapp/profile">
+            <span className={`${open ? '' : 'hidden'} text-black text-[14px] ${currentRoute === "/webapp/profile" ? 'text-[#FFE5CC]' : ''}`}>view profile</span>
+            </Link>
+        
           </div>
         </div>
         <ul className="pt-6">
