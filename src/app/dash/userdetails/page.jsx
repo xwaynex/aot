@@ -56,7 +56,7 @@ const page = () => {
     </div>
 
     {/**table */}
-    <div className='bg-white shadow-xl rounded-lg mt-5 p-10  h-full w-[80%]'>
+    <div className='bg-white shadow-xl rounded-lg mt-5 p-10  h-full w-full'>
     <Usertable/>
     
     </div>

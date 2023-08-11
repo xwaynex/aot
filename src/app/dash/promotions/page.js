@@ -13,7 +13,7 @@ const page = () => {
     <Layout>
     
     <div className='sticky'>
-    <div className='w-[80%]'>
+    <div className='w-full'>
     <div className=' bg-white my-5 text-black'>
     <h1 className='text-black font-semibold text-[32px] p-2'>Promotions</h1>
     </div>

@@ -5,7 +5,7 @@ import Sidebar from './Sidebardash'
 const Layout = ({children}) => {
   return (
     <div className='bg-white'>
-      <div className='flex gap-0 h-full'>
+      <div className='flex gap-0 h-full w-[1280px]'>
       <div className=' bg-white h-screen sticky top-0'><Sidebar/></div>
       <div className=' bg-white text-sm w-full font-light h-auto pl-[42px] '>{children}</div>
       </div>

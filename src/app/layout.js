@@ -2,6 +2,8 @@ import './globals.css'
 import { Mulish } from 'next/font/google'
 import { Providers } from '../store/provider'
 
+
+
 const mulish = Mulish({
   weight: ['400', '700'],
   style: ['normal', 'italic'],
@@ -18,7 +20,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    <body className={mulish.className}>  <Providers>
+    <body className={mulish.className}>  
+    <Providers>
     {children}
     </Providers>
     </body>
