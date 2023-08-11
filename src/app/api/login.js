@@ -9,7 +9,7 @@ export default async function handler(req, res) {
       const response = await axios.post(apiUrl, {
         username,
         password,
-    device_name
+        device_name
 
       });
 
