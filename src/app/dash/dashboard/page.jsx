@@ -3,11 +3,11 @@ import React from 'react'
 import Layout from '../../shared/Layout'
 import LineChart from '../../components/dash/Linechart'
 import LineChart2 from '../../components/dash/Linechart2'
-import RequireAuth from '@/features/auth/RequireAuth'
+import ProtectedRoute from "../../components/Protected"
 
 const page = () => {
   return (
-    <RequireAuth>
+    <ProtectedRoute>
     <Layout>
     <div className=' bg-white w-[100%] my-5 text-black h-auto'>
     <div className=' bg-white w-[auto] p-5 sticky top-0 flex mt-[55px]'>    
@@ -113,7 +113,7 @@ const page = () => {
     </div>
     
     </Layout>
-    </RequireAuth>
+    </ProtectedRoute>
   )
 }
 

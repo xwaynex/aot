@@ -12,7 +12,7 @@ import promo from '../../assets/Vectorpromo.png';
 import staff from '../../assets/Vectorstaffs.png';
 import control from '../../assets/Vectorusercontrol.png';
 import support from '../../assets/Vectorsupport.png';
-
+import Logout from "../components/Logout"
 const Sidebar = () => {
   const currentRoute = usePathname();
 
@@ -68,6 +68,8 @@ const Sidebar = () => {
                   </span>
                 </div>
               </Link>
+
+              <Logout/>
             </li>
           ))}
         </ul>

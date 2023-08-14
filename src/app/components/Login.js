@@ -1,9 +1,12 @@
-"use client"
 import React from 'react';
-import { useLoginMutation } from '../../api/apiSlice'; // Adjust the path
-
+import { useLoginMutation } from '../api/apiSlice';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../store/slice/userSlice'; // Make sure to import setUser action from the correct path
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
   const [login, { isLoading, isError, isSuccess, error }] = useLoginMutation();
 
   const handleSubmit = async (event) => {
@@ -12,15 +15,29 @@ const LoginForm = () => {
     const email = formData.get('email');
     const password = formData.get('password');
     const device_name = formData.get('device_name') || 'web';
-
-
+  
     try {
       const loginData = { email, password, device_name };
-      await login(loginData).unwrap();
-      window.location.href = '/dash/dashboard'; // Replace with your desired route
+      const response = await login(loginData);
+  
+      console.log('Response:', response.data);
+      console.log('Response:', response);
+      console.log('Token value:', response.data.token);
+
+  
+      // Check if the 'token' field is truthy
+      if (response.data.data.token) {
+        localStorage.setItem('auth_token', response.data.data.token);
+        dispatch(setUser(response.data.data.user));
+        router.push('/dash/dashboard');
+      } else {
+        console.error('Token not received.');
+      }
     } catch (error) {
       console.error('Login error:', error);
+      console.error('Response:', error.response); // Log the error response, if available
     }
+    
   };
 
   return (

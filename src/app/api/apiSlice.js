@@ -1,41 +1,44 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { setCredentials, logOut } from '../../features/auth/authSlice'
+// import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const baseQuery = fetchBaseQuery({
-    baseUrl: 'https://dev.navingtechnologies.com/alto/public/api/auth/login',
-    credentials: 'include',
-    prepareHeaders: (headers, { getState }) => {
-        const token = getState().auth.token
-        if (token) {
-            headers.set("Authorization", `Bearer ${token}`)
-        }
-        return headers
-    }
-})
+// const api = createApi({
+//   baseQuery: fetchBaseQuery({ baseUrl: 'https://dev.navingtechnologies.com/alto/public/api' }), // Adjust the baseUrl as needed
+//   endpoints: (builder) => ({
+//     login: builder.mutation({
+//       query: (body) => ({
+//         url: '/auth/login',
+//         method: 'POST',
+//         body,
+//       }),
+//     }),
+//     register: builder.mutation({
+//       query: (body) => ({
+//         url: '/auth/register',
+//         method: 'POST',
+//         body,
+//       }),
+//     }),
+//     // Define other endpoints here
+//   }),
+// });
 
-const baseQueryWithReauth = async (args, api, extraOptions) => {
-    let result = await baseQuery(args, api, extraOptions)
+// export const { useLoginMutation, useRegisterMutation } = api;
+// export default api;
 
-    if (result?.error?.originalStatus === 403) {
-        console.log('sending refresh token')
-        // send refresh token to get new access token 
-        const refreshResult = await baseQuery('/refresh', api, extraOptions)
-        console.log(refreshResult)
-        if (refreshResult?.data) {
-            const user = api.getState().auth.user
-            // store the new token 
-            api.dispatch(setCredentials({ ...refreshResult.data, user }))
-            // retry the original query with new access token 
-            result = await baseQuery(args, api, extraOptions)
-        } else {
-            api.dispatch(logOut())
-        }
-    }
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-    return result
-}
+const api = createApi({
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://dev.navingtechnologies.com/alto/public/api' }),
+  endpoints: (builder) => ({
+    login: builder.mutation({
+      query: (body) => ({
+        url: '/auth/login',
+        method: 'POST',
+        body,
+      }),
+    }),
+    // Define other endpoints here
+  }),
+});
 
-export const apiSlice = createApi({
-    baseQuery: baseQueryWithReauth,
-    endpoints: builder => ({})
-})
+export const { useLoginMutation } = api;
+export default api;
