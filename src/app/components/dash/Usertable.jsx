@@ -2,11 +2,12 @@
 
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { data } from '../../dash/data/disputedata';
 import { useSelector } from 'react-redux';
 import { DashboardPages } from '@/store/slice/dashboardSlice';
 import { useState } from 'react'
 import ModalComponent from './Modal';
+import { useGetUsersQuery } from "../../api/apiSlice"
+
 
 
 
@@ -113,6 +114,18 @@ const additionalColumnData=[
 
 
 export default function Usertable() {
+
+  const { data, error, isLoading } = useGetUsersQuery();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  const users = data?.data?.users || [];
 
   const tableStyles = {
     border: 'none',

@@ -206,7 +206,7 @@ const page = () => {
   <div className='grid grid-cols-12 gap-3 justify-center items-center'>
     <div className='col-span-1'> <Image src={cash} alt="" width="" height=""/></div>
     <div className='col-span-11 flex justify-between'><h1>Cash On Delivery</h1>
-    <div ><input type='checkbox' className='outline-none border-transparent'/></div>
+    <div ><input type='radio' className='outline-none border-transparent'/></div>
     </div>
   </div>
 
@@ -214,7 +214,7 @@ const page = () => {
   <div className='grid grid-cols-12 gap-3 justify-center items-center'>
     <div className='col-span-1'> <Image src={wallet} alt="" width="" height=""/></div>
     <div className='col-span-11 flex justify-between'><h1>Wallet</h1>
-    <div ><input type='checkbox' className='outline-none border-transparent'/></div>
+    <div ><input type='radio' className='outline-none border-transparent'/></div>
     </div>
   </div>
 
@@ -222,7 +222,7 @@ const page = () => {
   <div className='grid grid-cols-12 gap-3 justify-center items-center'>
     <div className='col-span-1'> <Image src={cc} alt="" width="" height=""/></div>
     <div className='col-span-11 flex justify-between'><h1>Credit/Debit Card</h1>
-    <div ><input type='checkbox' className='outline-none border-transparent'/></div>
+    <div ><input type='radio' className='outline-none border-transparent'/></div>
     </div>
   </div>
 

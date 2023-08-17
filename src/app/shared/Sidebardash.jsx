@@ -2,7 +2,6 @@ import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 import logo from '../../../public/logo.png';
 import vect from '../../../public/vect.png';
 import dash from '../../assets/dash.png';
@@ -13,8 +12,13 @@ import staff from '../../assets/Vectorstaffs.png';
 import control from '../../assets/Vectorusercontrol.png';
 import support from '../../assets/Vectorsupport.png';
 import Logout from "../components/Logout"
+import { useSelector } from 'react-redux';
+
+
 const Sidebar = () => {
   const currentRoute = usePathname();
+  const user = useSelector(state => state.user); // Access the entire user object
+  const username = user && user.name; // Access the user's name
 
   const [open, setOpen] = useState(true)
 
@@ -26,6 +30,7 @@ const Sidebar = () => {
     { title: 'Staffs', src: staff, link: 'staffs', path: '/dash/staffs' },
     { title: 'User Control', src: control, link: 'controls', path: '/dash/controls' },
     { title: 'Support', src: support, link: 'support', path: '/dash/support' },
+    { title: 'test', src: support, link: 'test', path: '/dash/test' },
   ];
 
   return (
@@ -48,7 +53,7 @@ const Sidebar = () => {
             <Image src={vect} alt="" width={20} height={20} />
           </div>
           <div className="flex flex-col text-center">
-            <span className={`${open ? '' : 'hidden'} text-black text-[20px]`}>Olakareem</span>
+            <span className={`${open ? '' : 'hidden'} text-black text-[20px]`}>{username}</span>
             <span className={`${open ? '' : 'hidden'} text-black text-[14px]`}>Administrator</span>
           </div>
         </div>
@@ -69,10 +74,11 @@ const Sidebar = () => {
                 </div>
               </Link>
 
-              <Logout/>
             </li>
           ))}
         </ul>
+        <Logout/>
+
       </div>
     </div>
   );

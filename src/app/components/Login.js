@@ -22,13 +22,13 @@ const LoginForm = () => {
   
       console.log('Response:', response.data);
       console.log('Response:', response);
-      console.log('Token value:', response.data.token);
+      console.log('Token value:', response.data.data.token);
 
   
       // Check if the 'token' field is truthy
       if (response.data.data.token) {
         localStorage.setItem('auth_token', response.data.data.token);
-        dispatch(setUser(response.data.data.user));
+        dispatch(setUser(response.data.data));
         router.push('/dash/dashboard');
       } else {
         console.error('Token not received.');

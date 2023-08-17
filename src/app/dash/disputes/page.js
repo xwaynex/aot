@@ -6,11 +6,17 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import Dispute from '../../components/dash/Dispute';
 import { useDispatch } from 'react-redux';
 import { DisputePages, setCurrentPage } from '@/store/slice/disputeSlice';
+import { useSelector } from 'react-redux'; 
+import ProtectedRoute from "../../components/Protected"
+
 
 const page = () => {
   const dispatch=useDispatch();
+  const user = useSelector((state) => state.user);
+
+  
   return (
-    <Layout>
+    <ProtectedRoute user={user}>    <Layout>
     
     <div className='px-10'>
     <div className=' bg-white my-5 text-black'>
@@ -63,6 +69,7 @@ const page = () => {
 
     </div>
     </Layout>
+    </ProtectedRoute>
   )
 }
 

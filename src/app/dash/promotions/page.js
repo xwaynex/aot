@@ -6,10 +6,17 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import Promotions from '../../components/dash/Promotions';
 import { useDispatch } from 'react-redux';
 import { PromotionsPages, setCurrentPage } from '@/store/slice/promotionsSlice';
+import { useSelector } from 'react-redux'; 
+import ProtectedRoute from "../../components/Protected"
+
 
 const page = () => {
   const dispatch=useDispatch();
+  const user = useSelector((state) => state.user);
+
+  
   return (
+    <ProtectedRoute user={user}>
     <Layout>
     
     <div className='sticky'>
@@ -64,6 +71,7 @@ const page = () => {
 
     </div>
     </Layout>
+    </ProtectedRoute>
   )
   }
   export default page

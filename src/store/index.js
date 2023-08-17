@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userReducer, { selectUser } from './slice/userSlice'; // Update the path
+import userReducer from './slice/userSlice'; 
 import dashboardReducer from "./slice/dashboardSlice";
 import disputeReducer from "./slice/disputeSlice";
 import promotionsReducer from "./slice/promotionsSlice";
@@ -18,3 +18,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(api.middleware),
 });
+
+const userState = store.getState().user;
+
+

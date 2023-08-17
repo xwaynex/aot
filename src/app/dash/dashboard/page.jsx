@@ -4,10 +4,14 @@ import Layout from '../../shared/Layout'
 import LineChart from '../../components/dash/Linechart'
 import LineChart2 from '../../components/dash/Linechart2'
 import ProtectedRoute from "../../components/Protected"
+import { useSelector } from 'react-redux'; 
 
 const page = () => {
+  const user = useSelector((state) => state.user);
+
+  
   return (
-    <ProtectedRoute>
+    <ProtectedRoute user={user}>
     <Layout>
     <div className=' bg-white w-[100%] my-5 text-black h-auto'>
     <div className=' bg-white w-[auto] p-5 sticky top-0 flex mt-[55px]'>    
@@ -37,14 +41,14 @@ const page = () => {
     <div className='grid grid-cols-9 gap-3 mt-5'>
 
     <div className='col-span-5 h-[425px] rounded-lg p-5 bg-white w-full shadow-xl border-2-black'>
-    <h1 className='text-black  text-[20px] '>User Overview</h1>
+    <h1 className='text-black font-bold text-[20px] '>User Overview</h1>
     <div className='w-[80] border-b-2'></div>
     <LineChart/>
     </div>
 
     <div className='col-span-4 h-full'>
       <div className=' rounded-lg bg-white w-full p-5 shadow-xl border-2-black'>
-      <h2 className='text-[20px] '>Ticket Summary</h2>
+      <h2 className='text-[20px] font-bold '>Ticket Summary</h2>
       <div className='w-[80] border-b-2'></div>
       <table className="w-full table-fixed text-[17px]">
       <thead>
@@ -70,7 +74,7 @@ const page = () => {
 
 
       <div className=' rounded-lg bg-white w-full p-5 shadow-xl border-2-black mt-3'>
-      <h2 className='text-[20px] '>Account Overview</h2>
+      <h2 className='text-[20px] font-bold'>Account Overview</h2>
       <div className='w-[80] border-b-2'></div>
       <table className="w-full table-fixed text-[17px] ">
       <thead>
@@ -102,7 +106,7 @@ const page = () => {
 
     <div className='grid grid-cols-12 mt-5'>
     <div className='col-span-6 h-[425px] p-5 rounded-lg bg-white w-full  shadow-xl border-2-black'>
-    <h1 className='text-black  text-[20px] '>Total Amount Paid(#)</h1>
+    <h1 className='text-black font-bold text-[20px] '>Total Amount Paid(#)</h1>
     <div className='w-[80] border-b-2'></div>
     <LineChart2/>
     </div>

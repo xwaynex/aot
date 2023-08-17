@@ -3,12 +3,18 @@ import React from 'react'
 import Layout from '../../shared/Layout'
 import Staffs from '../../components/dash/Staffs';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux'; 
+import ProtectedRoute from '@/app/components/Protected';
+
 
 const page = () => {
   const dispatch=useDispatch();
-  return (
-    <Layout>
+  const user = useSelector((state) => state.user);
+
   
+  return (
+    <ProtectedRoute user={user}>
+      <Layout>
     <div className='sticky'>
     <div className=''>
     <div className=' bg-white my-5 text-black'>
@@ -24,6 +30,7 @@ const page = () => {
 
     </div>
     </Layout>
+    </ProtectedRoute>
   )
 }
 

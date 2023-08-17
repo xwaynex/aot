@@ -6,10 +6,16 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import Faq from '../../components/dash/Faq';
 import { useDispatch } from 'react-redux';
 import { PromotionsPages, setCurrentPage } from '@/store/slice/promotionsSlice';
+import { useSelector } from 'react-redux'; 
+
 
 const page = () => {
   const dispatch=useDispatch();
+  const user = useSelector((state) => state.user);
+
+  
   return (
+    <ProtectedRoute user={user}>
     <Layout>
     
     <div className='sticky text-black'>
@@ -27,6 +33,7 @@ const page = () => {
 
     </div>
     </Layout>
+    </ProtectedRoute>
   )
 }
 

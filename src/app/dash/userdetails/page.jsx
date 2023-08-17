@@ -3,13 +3,19 @@ import React from 'react'
 import Layout from '../../shared/Layout'
 import { Search } from '@mui/icons-material'
 import FilterListIcon from '@mui/icons-material/FilterList';
-import Usertable from '../../components/cs/User';
+import Usertable from '../../components/dash/Usertable';
 import { useDispatch } from 'react-redux';
 import { DashboardPages, setCurrentPage } from '@/store/slice/dashboardSlice';
+import ProtectedRoute from '@/app/components/Protected';
+import { useSelector } from 'react-redux'; 
 
 const page = () => {
   const dispatch=useDispatch();
+  const user = useSelector((state) => state.user);
+
   return (
+    <ProtectedRoute user={user}>
+
     <Layout>
     
     <div className=''>
@@ -63,6 +69,7 @@ const page = () => {
 
     </div>
     </Layout>
+    </ProtectedRoute>
   )
 }
 
