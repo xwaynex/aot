@@ -6,7 +6,8 @@ import { useSelector } from 'react-redux';
 import { DashboardPages } from '@/store/slice/dashboardSlice';
 import { useState } from 'react'
 import ModalComponent from './Modal';
-import { useGetUsersQuery } from "../../api/apiSlice"
+import { useGetDashboardQuery } from '../../api/apiSlice';
+
 
 
 
@@ -115,7 +116,7 @@ const additionalColumnData=[
 
 export default function Usertable() {
 
-  const { data, error, isLoading } = useGetUsersQuery();
+  const { data, error, isLoading } = useGetDashboardQuery();
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -145,19 +146,19 @@ export default function Usertable() {
   const currentPage=useSelector((state)=>state.dashboardState.currentPage);
 
 React.useEffect(()=>{
-if(currentPage == DashboardPages.INDIVIDUAL) {setCustomColumn([...columns,...additionalColumnData]);
-  setFilter("individual")
-}
-else setCustomColumn(columns);
-
-if(currentPage==DashboardPages.LOGISTICS_USERS) setFilter("user");
-if(currentPage==DashboardPages.COMPANY) setFilter("company");
-if(currentPage==DashboardPages.ALL_USERS) setFilter("");
-
-
-
-
-},[currentPage])
+  if(currentPage == DashboardPages.INDIVIDUAL) {setCustomColumn([...columns,...additionalColumnData]);
+    setFilter("individual")
+  }
+  else setCustomColumn(columns);
+  
+  if(currentPage==DashboardPages.LOGISTICS_USERS) setFilter("user");
+  if(currentPage==DashboardPages.COMPANY) setFilter("company");
+  if(currentPage==DashboardPages.ALL_USERS) setFilter("");
+  
+  
+  
+  
+  },[currentPage])
 
 
   return (

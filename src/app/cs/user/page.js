@@ -60,7 +60,6 @@ const page = () => {
     {/**table */}
 <div className='bg-white shadow-xl rounded-lg mt-5 p-10  h-full w-[100%] inline-block'>
     <Usertable/>
-    
     </div>
 
     </div>
