@@ -8,6 +8,7 @@ import ModalComponent from './Modal';
 import bin from "@/assets/delete.png";
 import edit from "@/assets/edit.png";
 import Image from 'next/image';
+import AddstaffModal from './AddstaffModal';
 
 
 
@@ -161,9 +162,7 @@ export default function Staffs() {
 
      
           <div className="grid place-content-center top-auto">
-          <button className="w-[300px] h-[56px] rounded-md bg-[#FF7D00] text-center">
-          <h2 className="text-[16px]">Add Staff</h2>
-          </button>
+          <AddstaffModal/>
           </div>
       
     </div>

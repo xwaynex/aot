@@ -13,10 +13,10 @@ const page = () => {
   return (
     <ProtectedRoute user={user}>
     <Layout>
-    <div className=' bg-white w-[100%] my-5 text-black h-auto'>
-    <div className=' bg-white w-[auto] p-5 sticky top-0 flex mt-[55px]'>    
+    <div className=' bg-white w-[100%]  text-black h-auto'>
+    <div className=' bg-white w-[auto] py-5 sticky top-0 flex mt-10 mr-5'>    
     <div className='mr-auto'>
-    <h1 className='text-black text-[32px] '>Dashboard</h1>
+    <h1 className='text-black font-semibold text-2xl py-2 '>Dashboard</h1>
     </div>
 
     <div className='ml-auto'>
@@ -41,14 +41,14 @@ const page = () => {
     <div className='grid grid-cols-9 gap-3 mt-5'>
 
     <div className='col-span-5 h-[425px] rounded-lg p-5 bg-white w-full shadow-xl border-2-black'>
-    <h1 className='text-black font-bold text-[20px] '>User Overview</h1>
+    <h1 className='text-black font-bold text-lg '>User Overview</h1>
     <div className='w-[80] border-b-2'></div>
     <LineChart/>
     </div>
 
     <div className='col-span-4 h-full'>
       <div className=' rounded-lg bg-white w-full p-5 shadow-xl border-2-black'>
-      <h2 className='text-[20px] font-bold '>Ticket Summary</h2>
+      <h2 className='text-lg font-bold '>Ticket Summary</h2>
       <div className='w-[80] border-b-2'></div>
       <table className="w-full table-fixed text-[17px]">
       <thead>
@@ -68,13 +68,13 @@ const page = () => {
         </tr>
       </tbody>
     </table>
-    <div className='text-right mt-5 text-[14px] text-[#FFD4AA]'>    <a href='/'>View all</a>    </div>
+    <div className='text-right mt-5 text-sm text-[#FFD4AA]'>    <a href='/'>View all</a>    </div>
 
       </div>
 
 
       <div className=' rounded-lg bg-white w-full p-5 shadow-xl border-2-black mt-3'>
-      <h2 className='text-[20px] font-bold'>Account Overview</h2>
+      <h2 className='text-lg font-bold'>Account Overview</h2>
       <div className='w-[80] border-b-2'></div>
       <table className="w-full table-fixed text-[17px] ">
       <thead>

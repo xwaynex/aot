@@ -2,15 +2,14 @@
 
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { data3 } from '../../../app/dash/data/disputedata';
 import { useSelector } from 'react-redux';
 import { PromotionsPages } from '@/store/slice/promotionsSlice';
-import Modal from 'react-modal'
-import { useState } from 'react'
-import ModalComponent from './Modal';
+import ModalComponent from './PromoModal';
 import bin from "@/assets/delete.png";
 import edit from "@/assets/edit.png";
 import Image from 'next/image';
+import { useGetPromoCodesQuery } from '../../api/apiSlice';
+import SimpleModalExample from './testmodal';
 
 
 
@@ -113,7 +112,7 @@ const columns = [
 
 
 
-export default function Promotions() {
+export default function Promotions({ searchQuery }) {
 
   const tableStyles = {
     border: 'none',
@@ -128,44 +127,53 @@ export default function Promotions() {
   };
 
 
-  const [customColumn,setCustomColumn]=React.useState(columns);
-  const [filter,setFilter]=React.useState("");
-  const currentPage=useSelector((state)=>state.promotionsState.currentPage);
+ 
 
-React.useEffect(()=>{
+  const [customColumn, setCustomColumn] = React.useState(columns);
+  const [filter, setFilter] = React.useState("");
+  const currentPage = useSelector((state) => state.promotionsState.currentPage);
 
+  // Use the query hook to fetch promo codes
+  const { data, error, isLoading } = useGetPromoCodesQuery();
 
-if(currentPage==PromotionsPages.ALL_PROMOTIONS) setFilter("");
-if(currentPage==PromotionsPages.ACTIVE) setFilter("active");
-if(currentPage==PromotionsPages.INACTIVE) setFilter("inactive");
+  React.useEffect(() => {
+    if (currentPage === PromotionsPages.ALL_PROMOTIONS) setFilter("");
+    if (currentPage === PromotionsPages.ACTIVE) setFilter("active");
+    if (currentPage === PromotionsPages.INACTIVE) setFilter("inactive");
+  }, [currentPage]);
 
+  const filteredData = data?.data.filter(
+    (item) =>
+      item.status === filter &&
+      (item.promo.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.discount.toString().includes(searchQuery))
+  );
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-
-},[currentPage])
-
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
-    <div style={{width: '100'}} className="h-auto text-[16px]">
-      <DataGrid
-      
-      style={tableStyles}
-      classes={{
-        cell: 'custom-cell',
-        columnHeader: 'custom-column-header',
-      }}
-        className='text-[16px] h-full'
-        rows={!!filter ? data3.filter((item)=>item.status==filter) : data3}
-        columns={customColumn}
-        rowHeight={50}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 10},
-          },
-        }}
-        pageSizeOptions={[15]}
-        
-      />
+          <div style={{}} className="h-[70vh] w-[70vw]  text-[5px] cursor-pointer">
+
+       {data && ( // Only render DataGrid if data is available
+        <DataGrid
+          // ... other props ...
+          rows={filteredData || []} // Use filteredData if available, or an empty array
+          columns={customColumn}
+          rowHeight={50}
+          hideFooterPagination={true} 
+
+        />
+      )}
+
+      <div className='w-full flex justify-center items-center'>
+      <SimpleModalExample />
+      </div>
       <style>
         {`
         .custom-cell {

@@ -52,12 +52,13 @@ const LineChart = () => {
               },
               grid: {
                 drawTicks: false,
-                display: false
+                zeroLineColor: "transparent"
               }
             },
             x: {
               grid: {
-                zeroLineColor: "transparent"
+                drawTicks: false,
+                display: false
               },
               ticks: {
                 padding: 20,
@@ -116,7 +117,7 @@ const LineChart = () => {
   return (
     <div >
      
-    <div className='h-[300px]'>
+    <div className='h-[300px] text-[5px] cursor-pointer'>
     <canvas ref={chartRef}></canvas> 
 
     </div>
@@ -125,11 +126,11 @@ const LineChart = () => {
 
       
       <div className='flex justify-center align-middle items-center gap-5 my-3'>
-      <button className='bg-[#FFD4AA] w-[82px] h-[41px] rounded-[16px]' onClick={() => handleViewModeChange('oneday')}>1 day</button>
-      <button className='bg-[#FFD4AA] w-[82px] h-[41px] rounded-[16px]' onClick={() => handleViewModeChange('oneWeek')}>1 wk</button>
-      <button className='bg-[#FFD4AA] w-[82px] h-[41px] rounded-[16px]' onClick={() => handleViewModeChange('oneMth')}>1 mth</button>
-      <button className='bg-[#FFD4AA] w-[82px] h-[41px] rounded-[16px]' onClick={() => handleViewModeChange('threeMth')}>3 mths</button>
-      <button className='bg-[#FFD4AA] w-[82px] h-[41px] rounded-[16px]' onClick={() => handleViewModeChange('oneyr')}>1 yr</button>
+      <button className='bg-[#FFD4AA] px-4 py-2 text-[10px] rounded-[12px]' onClick={() => handleViewModeChange('oneday')}>1 day</button>
+      <button className='bg-[#FFD4AA] px-4 py-2 text-[10px] rounded-[12px]' onClick={() => handleViewModeChange('oneWeek')}>1 wk</button>
+      <button className='bg-[#FFD4AA] px-4 py-2 text-[10px] rounded-[12px]' onClick={() => handleViewModeChange('oneMth')}>1 mth</button>
+      <button className='bg-[#FFD4AA] px-4 py-2 text-[10px] rounded-[12px]' onClick={() => handleViewModeChange('threeMth')}>3 mths</button>
+      <button className='bg-[#FFD4AA] px-4 py-2 text-[10px] rounded-[12px]' onClick={() => handleViewModeChange('oneyr')}>1 yr</button>
     </div>
 
 

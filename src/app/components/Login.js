@@ -2,6 +2,8 @@ import React from 'react';
 import { useLoginMutation } from '../api/apiSlice';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
+import logo from '../../../public/logo.png';
+import Image from 'next/image';
 import { setUser } from '../../store/slice/userSlice'; // Make sure to import setUser action from the correct path
 
 const LoginForm = () => {
@@ -41,10 +43,16 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen gr py-2 px-4 sm:px-6 place-content-center">
+      <div className="mt-9">
+          <Image src={logo} width="48" height="48" alt="logo" />
+        </div>
+
+    <div className="flex items-center justify-center py-6 px-4 sm:px-6 lg:px-8">
+    
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Log in to your account</h2>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Log in to your Dashboard</h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div>
@@ -90,7 +98,7 @@ const LoginForm = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#FF7D00] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               {isLoading ? 'Logging in...' : 'Login'}
             </button>
@@ -100,7 +108,12 @@ const LoginForm = () => {
         </form>
       </div>
     </div>
+    </div>
   );
 };
 
 export default LoginForm;
+
+
+
+

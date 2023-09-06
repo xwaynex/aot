@@ -1,7 +1,6 @@
 "use client"
 import React from 'react';
 import { useDispatch } from 'react-redux'; // Assuming you're using Redux
-import { setToken } from '../../../store/slice/userSlice'; // Assuming you have a Redux slice for authentication
 import { useGetDashboardQuery } from '../../api/apiSlice';
 import ProtectedRoute from '../../components/Protected';
 

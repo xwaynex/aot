@@ -7,7 +7,9 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@emotion/react';
 
 
-const ModalComponent = ({ rowData, open, handleClose }) => {
+const ModalComponent = ({ rowData, riderDetails, open, handleClose }) => {
+  console.log('ModalComponent - riderDetails:', riderDetails);
+
   return (
     <div className='w-[70%] bg-white'>
     <Dialog className='rounded-xl' open={open} onClose={handleClose}>
@@ -19,6 +21,8 @@ const ModalComponent = ({ rowData, open, handleClose }) => {
     </DialogActions>
       </div>
         
+      {riderDetails ? (
+
         <div className=' grid place-content-center '>
       <div className=" bg-white opacity-75 mx-auto my-auto mt-3 rounded-xl ">
 
@@ -31,20 +35,20 @@ const ModalComponent = ({ rowData, open, handleClose }) => {
        <label><h3 className="text-xs font-extralight">Rider Name</h3></label>
        <div className='grid grid-cols-9 gap-[36px] border border-[#CDCDCD] rounded-lg items-center'>
          <PersonOutlineIcon className='col-span-1'/>
-         <p className='col-span-8 p-2'>{rowData.name}</p>
+         <p className='col-span-8 p-2'>{riderDetails.name}</p>
         
        </div>
        </div>
       {/*input field */}
       <div className='flex flex-col  mb-3 flex-grow'>
       <label><h3 className="text-xs font-extralight">Rider Rating</h3></label>
+      <div className='grid grid-cols-9 gap-[36px] border border-[#CDCDCD] rounded-lg items-center'>
+         <PersonOutlineIcon className='col-span-1'/>
+         <p className='col-span-8 p-2'>{riderDetails.rating}</p>
+        
+       </div>
       <div className='grid grid-cols-9 rounded-lg items-center bg-[#CDCDCD]'>
-      <input type='file' placeholder='Enter Rider Name' className='col-span-8 text-sm opacity-0 inset-0
-      outline-none border-gray-300 rounded-md p-2
-       file:border-0
-      file:text-sm file:font-semibold
-      file:bg-gray-200 file:text-black
-      hover:file:bg-violet-100'/>
+      
       <StarHalfOutlinedIcon className=' col-span-1 '/>
       </div>
       </div>
@@ -151,6 +155,10 @@ const ModalComponent = ({ rowData, open, handleClose }) => {
       </div>
       </div>
       </div>
+      ) : (
+        <p>Loading rider details...</p>
+      )}
+   
      
       </DialogContent>
      

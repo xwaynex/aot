@@ -29,7 +29,7 @@ const Sidebar = () => {
     { title: 'Promotions', src: promo, link: 'promotions', path: '/dash/promotions' },
     { title: 'Staffs', src: staff, link: 'staffs', path: '/dash/staffs' },
     { title: 'User Control', src: control, link: 'controls', path: '/dash/controls' },
-    { title: 'Support', src: support, link: 'support', path: '/dash/support' },
+    { title: 'Support', src: support, link: 'faq', path: '/dash/faq' },
     { title: 'test', src: support, link: 'test', path: '/dash/test' },
   ];
 
@@ -37,7 +37,7 @@ const Sidebar = () => {
     <div className="flex shadow-md">
       <div
         className={`${
-          open ? 'w-72' : 'w-20 '
+          open ? 'w-64' : 'w-20 '
         } bg-dark-purple h-screen p-5  pt-8 relative duration-300`}
       >
         <div
@@ -61,14 +61,14 @@ const Sidebar = () => {
           {Menus.map((Menu, index) => (
             <li
               key={index}
-              className={`flex rounded-md p-2  cursor-pointer hover:text-[#FFE5CC] text-[#040404] text-[16px] items-center gap-x-6 ${
+              className={`flex rounded-md p-2  cursor-pointer hover:text-[#FFE5CC] text-[#040404] items-center gap-x-6 ${
                 open ? 'ml-[20%]' : ''
               } ${currentRoute === Menu.path ? 'bg-[#FFE5CC]' : ''}`}
             >
               <Link href={Menu.link}>
                 <div className="flex gap-3 items-center p-1">
                   <Image src={Menu.src} width={20} height={20} alt="image" />
-                  <span className={`${!open && 'hidden'} origin-left duration-200`}>
+                  <span className={`${!open && 'hidden'} origin-left duration-200 text-[80%]`}>
                     {Menu.title}
                   </span>
                 </div>

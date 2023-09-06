@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react';
 import Layout from '../../shared/Layout'
 import { Search } from '@mui/icons-material'
 import FilterListIcon from '@mui/icons-material/FilterList';
@@ -10,9 +10,12 @@ import { useSelector } from 'react-redux';
 import ProtectedRoute from "../../components/Protected"
 
 
+
 const page = () => {
   const dispatch=useDispatch();
   const user = useSelector((state) => state.user);
+  const [searchQuery, setSearchQuery] = useState(""); // Add this line
+
 
   
   return (
@@ -22,7 +25,7 @@ const page = () => {
     <div className='sticky'>
     <div className='w-full'>
     <div className=' bg-white my-5 text-black'>
-    <h1 className='text-black font-semibold text-[32px] p-2'>Promotions</h1>
+    <h1 className='text-black font-semibold text-2xl py-2'>Promotions</h1>
     </div>
 
 
@@ -65,8 +68,8 @@ const page = () => {
 
     {/**table */}
     <div className='bg-white shadow-xl rounded-lg mt-5 p-10  h-[80%] w-full'>
-    <Promotions/>
-    
+      <Promotions searchQuery={searchQuery}/> 
+     
     </div>
 
     </div>

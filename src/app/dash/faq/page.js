@@ -2,11 +2,10 @@
 import React from 'react'
 import Layout from '../../shared/Layout'
 import { Search } from '@mui/icons-material'
-import FilterListIcon from '@mui/icons-material/FilterList';
 import Faq from '../../components/dash/Faq';
 import { useDispatch } from 'react-redux';
-import { PromotionsPages, setCurrentPage } from '@/store/slice/promotionsSlice';
 import { useSelector } from 'react-redux'; 
+import ProtectedRoute from '@/app/components/Protected';
 
 
 const page = () => {
@@ -26,7 +25,7 @@ const page = () => {
     </div>
 
     {/**table */}
-    <div className='bg-white shadow-xl rounded-lg mt-5 p-10  h-full w-[80%]'>
+    <div className='bg-white shadow-xl rounded-lg mt-5 p-10  h-full w-[75vw]'>
     <Faq/>
     
     </div>
