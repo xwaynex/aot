@@ -153,6 +153,20 @@ createUser: builder.mutation({
   onSuccess: (response) => {
     console.log('Create User mutation success:', response);
   },
+
+  // Gets order details
+  getOrderDetails: builder.query({
+    query: () => ({
+      url: `/v1/customer/order/book`,
+      method: 'POST',
+    }),
+    onError: (error) => {
+      console.error('Error getting order details:', error);
+    },
+    onSuccess: (response) => {
+      console.log('Got order details successfully:', response);
+    },
+  }),
 }),
 
 verifyUser: builder.mutation({
@@ -177,6 +191,6 @@ verifyUser: builder.mutation({
 });
 
 export const { useLoginMutation, useRegisterMutation, useVerifyUserMutation, useResendOtpMutation,  useRequestPasswordResetMutation, useResetPasswordMutation,   useGetDashboardQuery, useGetPromoCodesQuery, useCreatePromotionMutation, useGetFAQsQuery, useCreateFAQMutation, useGetUserDetailsQuery,
-  useLazyGetUserDetailsQuery, useCreateUserMutation} = api;
+useLazyGetUserDetailsQuery, useCreateUserMutation,useGetOrderDetails} = api;
 
 export default api;
