@@ -1,5 +1,10 @@
-import { useState, useMemo } from "react";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { useState, useMemo, CSSProperties } from "react";
+import {
+  GoogleMap,
+  useLoadScript,
+  Marker,
+  StandaloneSearchBox,
+} from "@react-google-maps/api";
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
@@ -25,7 +30,6 @@ export default function MyGoogleMap() {
   if (!isLoaded) return <div>Loading...</div>;
   if (loadError) return <div>Error loading maps</div>;
 
-
   const handleSelect = (place) => {
     setSelected(place);
   };
@@ -34,7 +38,7 @@ export default function MyGoogleMap() {
     <>
       <PlacesAutocomplete setSelected={handleSelect} />
 
-      <Map selected ={selected} />
+      <Map selected={selected} />
     </>
   );
 
@@ -44,15 +48,42 @@ export default function MyGoogleMap() {
 function Map({ selected }) {
   const center = useMemo(() => ({ lat: 43.45, lng: -80.49 }), []);
   const containerStyle = {
-    width: '100%',
-    height: '100%'
+    width: "100%",
+    height: "100%",
+  };
+
+  const inputStyle = {
+    boxSizing: `border-box`,
+    border: `1px solid transparent`,
+    width: `240px`,
+    height: `32px`,
+    padding: `0 12px`,
+    borderRadius: `3px`,
+    boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+    fontSize: `14px`,
+    outline: `none`,
+    textOverflow: `ellipses`,
+    position: "absolute",
+    top: "10px",
+    right: "10px",
   };
 
   return (
-    <GoogleMap center={selected || center} zoom={10}  mapContainerStyle={containerStyle}>
+    <GoogleMap
+      center={selected || center}
+      zoom={10}
+      mapContainerStyle={containerStyle}
+    >
+      <StandaloneSearchBox>
+        <input
+          type="text"
+          placeholder="Enter an address"
+          style={inputStyle}
+        />
+      </StandaloneSearchBox>
 
-    {selected && <Marker position={selected} />}
-  </GoogleMap>
+      {selected && <Marker position={selected} />}
+    </GoogleMap>
   );
 }
 
